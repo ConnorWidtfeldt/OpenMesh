@@ -151,13 +151,9 @@ if (WIN32)
 
 
 else ()
-  vci_add_library (OpenMeshCore SHAREDANDSTATIC ${sources} ${headers})
+  vci_add_library (OpenMeshCore STATIC ${sources} ${headers})
 
   target_include_directories(OpenMeshCore PUBLIC
-                                          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../..>
-                                          $<INSTALL_INTERFACE:include>)
-
-  target_include_directories(OpenMeshCoreStatic PUBLIC
                                           $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../..>
                                           $<INSTALL_INTERFACE:include>)
 
