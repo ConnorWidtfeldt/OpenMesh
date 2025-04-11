@@ -86,7 +86,8 @@ public:
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__INTEL_COMPILER) || defined (__MINGW32__) )
 
 #ifndef DOXY_IGNORE_THIS
-#include <windows.h>
+#define WIN32_LEAN_AND_MEAN
+#include <Windows.h>
 #endif
 
 class TimerImplWin32 : public TimerImpl
