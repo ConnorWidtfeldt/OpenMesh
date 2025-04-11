@@ -116,13 +116,9 @@ if (WIN32)
                                         $<INSTALL_INTERFACE:include>)
 
 else ()
-  vci_add_library (OpenMeshTools SHAREDANDSTATIC ${sources} ${headers})
+  vci_add_library (OpenMeshTools STATIC ${sources} ${headers})
 
   target_include_directories(OpenMeshTools PUBLIC
-                                          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../..>
-                                          $<INSTALL_INTERFACE:include>)
-
-  target_include_directories(OpenMeshToolsStatic PUBLIC
                                           $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../..>
                                           $<INSTALL_INTERFACE:include>)
 
@@ -131,10 +127,6 @@ else ()
 endif ()
 
 target_link_libraries (OpenMeshTools OpenMeshCore)
-
-IF( NOT WIN32 )
-  target_link_libraries (OpenMeshToolsStatic OpenMeshCoreStatic)
-ENDIF(NOT WIN32)
 
 if ( (${CMAKE_PROJECT_NAME} MATCHES "OpenMesh") AND BUILD_APPS )
 
@@ -149,7 +141,6 @@ if ( (${CMAKE_PROJECT_NAME} MATCHES "OpenMesh") AND BUILD_APPS )
   if (APPLE)
     # let bundle generation depend on target
     add_dependencies (fixbundle OpenMeshTools)
-    add_dependencies (fixbundle OpenMeshToolsStatic)
   endif()
 
 endif()
