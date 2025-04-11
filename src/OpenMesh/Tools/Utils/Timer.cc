@@ -83,7 +83,7 @@ public:
 // compiler and os dependent implementation
 
 // ------------------------------------------------------------- windows 32 ----
-#if defined(WIN32) && (defined(_MSC_VER) || defined(__INTEL_COMPILER) || defined (__MINGW32__) )
+#if defined(_WIN32) && (defined(_MSC_VER) || defined(__INTEL_COMPILER) || defined (__MINGW32__) )
 
 #ifndef DOXY_IGNORE_THIS
 #include <windows.h>
@@ -185,7 +185,7 @@ protected:
 };
 
 // ----------------------------------------------------------- gettimeofday ----
-#elif (defined(__GNUC__) && !defined(__FreeBSD__) || (defined(__INTEL_COMPILER) && !defined(WIN32))) && !defined(__MINGW32__)
+#elif (defined(__GNUC__) && !defined(__FreeBSD__) || (defined(__INTEL_COMPILER) && !defined(_WIN32))) && !defined(__MINGW32__)
 
 #  include <sys/time.h>
 #  include <sys/resource.h>
@@ -261,7 +261,7 @@ void TimerImplStd::stop(void)
 Timer::Timer(void) :
     state_(Stopped)
 {
-#if defined(WIN32) && (defined(_MSC_VER) || defined(__INTEL_COMPILER) || defined(__MINGW32__)) 
+#if defined(_WIN32) && (defined(_MSC_VER) || defined(__INTEL_COMPILER) || defined(__MINGW32__)) 
   impl_       = new TimerImplWin32;
 #elif defined(__GNUC__) && defined(__POSIX__)
 // CLOCK_REALTIME
@@ -273,7 +273,7 @@ Timer::Timer(void) :
 #  else
   impl_      = new TimerImplPosix<CLOCK_REALTIME>;
 #  endif
-#elif (defined(__GNUC__) && !defined(__FreeBSD__) || (defined(__INTEL_COMPILER) && !defined(WIN32)) ) && !defined(__MINGW32__)
+#elif (defined(__GNUC__) && !defined(__FreeBSD__) || (defined(__INTEL_COMPILER) && !defined(_WIN32)) ) && !defined(__MINGW32__)
   impl_      = new TimerImplGToD;
 #else
   impl_       = new TimerImplStd;

@@ -99,7 +99,7 @@ write(const std::string& _filename, BaseExporter& _be, const Options& _writeOpti
   out << std::fixed;
 
   {
-#if defined(WIN32)
+#if defined(_WIN32)
     std::string::size_type dotposition = _filename.find_last_of("\\/");
 #else
     std::string::size_type dotposition = _filename.rfind("/");

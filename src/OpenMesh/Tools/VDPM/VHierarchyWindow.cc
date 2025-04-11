@@ -54,7 +54,7 @@
 
 #include <cstring>
 
-#ifndef WIN32
+#ifndef _WIN32
 #else
   #if defined(__MINGW32__)
     #include <stdlib.h>

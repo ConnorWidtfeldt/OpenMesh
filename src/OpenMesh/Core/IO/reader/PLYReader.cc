@@ -56,7 +56,7 @@
 #include <memory>
 #include <string>
 
-#ifndef WIN32
+#ifndef _WIN32
 #endif
 
 //=== NAMESPACES ==============================================================

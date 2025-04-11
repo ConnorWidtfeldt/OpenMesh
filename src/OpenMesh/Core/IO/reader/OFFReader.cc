@@ -70,7 +70,7 @@
 using std::isspace;
 #endif
 
-#ifndef WIN32
+#ifndef _WIN32
 #endif
 
 //=== NAMESPACES ==============================================================

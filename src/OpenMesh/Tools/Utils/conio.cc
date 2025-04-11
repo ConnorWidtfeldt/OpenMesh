@@ -59,7 +59,7 @@ int getche() { return ::_getche(); }
 } // AS
 
 // ----------------------------------------------------------------- Win32 ----
-#elif defined(WIN32) || defined(__MINGW32__)
+#elif defined(_WIN32) || defined(__MINGW32__)
 
 #include <conio.h>
 

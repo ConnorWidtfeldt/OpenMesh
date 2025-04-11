@@ -60,7 +60,7 @@
 using std::isspace;
 #endif
 
-#ifndef WIN32
+#ifndef _WIN32
 #endif
 
 #include <fstream>
@@ -134,7 +134,7 @@ read(const std::string& _filename, BaseImporter& _bi, Options& _opt)
   }
 
   {
-#if defined(WIN32)
+#if defined(_WIN32)
     std::string::size_type dot_pos = _filename.find_last_of("\\/");
 #else
     std::string::size_type dot_pos = _filename.rfind("/");

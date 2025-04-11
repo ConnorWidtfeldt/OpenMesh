@@ -65,7 +65,7 @@
 #define OM_GET_MAJ ((OM_VERSION & 0x0ff00) >> 8)
 #define OM_GET_MIN  (OM_VERSION & 0x000ff)
 
-#ifdef WIN32
+#ifdef _WIN32
 #  ifdef min
 #    pragma message("Detected min macro! OpenMesh does not compile with min/max macros active! Please add a define NOMINMAX to your compiler flags or add #undef min before including OpenMesh headers !")
 #    error min macro active 
